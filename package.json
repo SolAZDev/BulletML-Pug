@@ -1,0 +1,16 @@
+{
+  "name": "bulletml-pug",
+  "description": "Write BulletML files with Pug Mixins!",
+  "author": {
+    "email": "solazdev@gmail.com",
+    "name": "SolAZDev",
+    "url": "https://solazdev.com/"
+  },
+  "devDependencies": {
+    "pug": "^3.0.2",
+    "pug-cli": "^1.0.0-alpha6"
+  },
+  "scripts": {
+    "toXML": "pug --pretty --out output_files/ --extension xml"
+  }
+}

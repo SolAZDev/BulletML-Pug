@@ -1,0 +1,21 @@
+include ../BulletML.mixins.pug
++BulletML("vertical")
+    +Action(top, false)
+        +Repeat(10)
+            action
+                +Fire("fireA", true)
+                wait 10
+        wait 180
+
+    +Fire("fireA", false)
+        +Direction(0, "relative")
+        +Speed(1.5)
+        +Bullet("default", true)
+    
+    +Bullet("default", false, 2, 180*3)
+        action
+            +Repeat(36)
+                action
+                    wait 30
+                    +ChangeSpeed(1, "relative", 10)
+                    +ChangeDirection(10, "relative", 15)

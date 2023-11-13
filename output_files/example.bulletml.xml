@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?><!DOCTYPE "bulletml SYSTEM 'bulletml.dtd'">
+<bulletml type="vertical" xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+  <action label="top">
+    <repeat>
+      <times>10</times>
+      <action>
+        <fireRef label="fireA">
+        </fireRef>
+        <wait>10</wait>
+      </action>
+    </repeat>
+    <wait>180</wait>
+  </action>
+  <fire label="fireA">
+    <direction type="relative">0</direction>
+    <speed type="absolute">1.5</speed>
+    <bulletRef label="default">
+    </bulletRef>
+  </fire>
+  <bullet label="default" damage="2" lifetime="540">
+    <action>
+      <repeat>
+        <times>36</times>
+        <action>
+          <wait>30</wait>
+          <changeSpeed>
+            <speed type="relative">1</speed>
+            <term>10</term>
+          </changeSpeed>
+          <changeDirection>
+            <direction type="relative">10</direction>
+            <term>15</term>
+          </changeDirection>
+        </action>
+      </repeat>
+    </action>
+  </bullet>
+</bulletml>

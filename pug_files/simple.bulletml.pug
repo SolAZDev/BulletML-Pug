@@ -1,0 +1,7 @@
+include ../BulletML.mixins.pug
++BulletML("vertical")
+    +Action(top, false)
+        fire 
+            +Direction("$rand*3", "aim")
+            bullet
+                speed 10

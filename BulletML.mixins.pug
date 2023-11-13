@@ -1,0 +1,70 @@
+mixin BulletML(dirType="vertical")
+    doctype xml
+    doctype "bulletml SYSTEM 'bulletml.dtd'"
+    bulletml(type=dirType, xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml")
+        block
+
+mixin Action(label="top", isRef=false)
+    if isRef
+        actionRef(label=label)
+            block
+    else
+        action(label=label)
+            block
+
+mixin Fire(label="fireLabel", isRef=false)
+    if isRef
+        fireRef(label=label)
+            block
+    else
+        fire(label=label)
+            block
+
+mixin Bullet(label="default", isRef=false, damage=1, lifetime=3600)
+    if isRef
+        bulletRef(label=label)
+            block
+    else
+        bullet(label=label, damage=damage, lifetime=lifetime)
+            block
+
+mixin Accel(hAmmount=0, hType="absolute",vAmmount=0, vType="absolute", term=60)
+    accel
+        horizontal(type=hType)= hAmmount
+        vertical(type=vType)= vAmmount
+        term= term
+
+mixin AccelH(ammount=0, type="absolute", term=60)
+    accel 
+        horizontal(type=type)= ammount
+
+mixin AccelV(ammount=0, type="absolute", term=60)
+    accel 
+        vertical(type=type)= ammount
+
+mixin ChangeDirection(angle=0, type="absolute", term=60)
+    changeDirection
+        +Direction(angle, type)
+        term= term
+
+mixin ChangeSpeed(speed=1, type="absolute", term=60)
+    changeSpeed
+        +Speed(speed, type)
+        term= term
+
+mixin Direction(angle=0, type="absolute")
+    direction(type=type)= angle
+
+mixin Speed(speed=0, type="absolute")
+    speed(type=type)= speed
+
+//- Sadly doesn't work.
+//- "<param/> is self enclosing but contains nested content"
+//- mixin Params(params=[1,2,3])
+//-     each par in params
+//-         param= par
+
+mixin Repeat(times=1)
+    repeat
+        times= times 
+        block
